@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none">
+  <defs>
+    <linearGradient id="featherStem" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C058"/>
+      <stop offset="100%" stop-color="#8F6A17"/>
+    </linearGradient>
+    <radialGradient id="eyeBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#001845"/>
+      <stop offset="60%" stop-color="#023E8A"/>
+      <stop offset="100%" stop-color="#0077B6"/>
+    </radialGradient>
+    <radialGradient id="eyeTeal" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06D6A0"/>
+      <stop offset="70%" stop-color="#118AB2"/>
+      <stop offset="100%" stop-color="#073B4C"/>
+    </radialGradient>
+    <radialGradient id="eyeGold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE680"/>
+      <stop offset="80%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#9A7211"/>
+    </radialGradient>
+  </defs>
+  <!-- Main stem -->
+  <path d="M50 115 C50 90 48 55 50 15" stroke="url(#featherStem)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Feather eye outer contour -->
+  <ellipse cx="50" cy="38" rx="28" ry="34" fill="url(#eyeGold)" opacity="0.85"/>
+  <ellipse cx="50" cy="40" rx="21" ry="26" fill="url(#eyeTeal)"/>
+  <ellipse cx="50" cy="42" rx="14" ry="17" fill="url(#eyeBlue)"/>
+  <ellipse cx="50" cy="44" rx="7" ry="8" fill="#5CE1E6"/>
+  <!-- Decorative barbs -->
+  <path d="M30 65 C20 58 10 50 15 35 M70 65 C80 58 90 50 85 35" stroke="url(#featherStem)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <path d="M35 80 C22 75 15 65 20 52 M65 80 C78 75 85 65 80 52" stroke="url(#featherStem)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <path d="M40 95 C30 92 24 82 28 72 M60 95 C70 92 76 82 72 72" stroke="url(#featherStem)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+</svg>

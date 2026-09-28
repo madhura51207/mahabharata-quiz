@@ -1,0 +1,15 @@
+# Environment and secrets
+.env
+.env.local
+*.key
+config.local.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

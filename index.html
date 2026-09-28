@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahabharata Quiz — Epic Journey of Dharma & Wisdom</title>
+  <meta name="description" content="Interactive, educational Mahabharata quiz for all age groups with curated questions, dynamic learning, and rich explanations.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts: Cinzel for timeless Indian epic headings, Plus Jakarta Sans for clean reading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Top App Navigation / Header -->
+  <header class="app-header">
+    <div class="container header-content">
+      <div class="brand-wrapper" id="brandHomeBtn" role="button" tabindex="0" title="Mahabharata Quiz Home">
+        <div class="brand-icon-wrapper">
+          <img src="assets/peacock.svg" alt="Mahabharata Quiz Peacock Icon">
+        </div>
+        <div class="brand-title">
+          Mahabharata Quiz
+          <span class="brand-badge">Educational</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Sound Effect Toggle -->
+        <button id="soundToggleBtn" class="header-btn" type="button" aria-label="Toggle Sound Effects" title="Toggle Sound">
+          <span id="soundIcon">🔊</span>
+          <span class="btn-label">Sound</span>
+        </button>
+
+        <!-- AI Mode Action Button -->
+        <button id="aiSettingsBtn" class="header-btn" type="button" aria-label="Generate with AI Mode" title="Generate AI Quiz for selected options">
+          <span>✨</span>
+          <span class="btn-label">AI Mode</span>
+        </button>
+
+        <!-- API Key Settings Button -->
+        <button id="openAiModalBtn" class="header-btn" type="button" aria-label="Gemini API Key Settings" title="Configure Gemini API key">
+          <span>⚙️</span>
+          <span class="btn-label">Key</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Screens -->
+  <main class="app-main">
+    <div class="container">
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 1: HOME & QUIZ SETUP                                        -->
+      <!-- ================================================================== -->
+      <section id="homeScreen" class="screen active-screen" aria-label="Quiz Setup">
+        
+        <!-- Hero Introduction -->
+        <div class="hero-card">
+          <img class="hero-emblem" src="assets/chariot-wheel.svg" alt="Dharmachakra Chariot Wheel">
+          <h1 class="hero-title">Mahabharata Quiz</h1>
+          <p class="hero-subtitle">
+            An interactive educational quest through ancient India's greatest epic. Discover timeless stories of valor, righteous Dharma, celestial astras, and deep philosophical wisdom crafted for every generation.
+          </p>
+        </div>
+
+        <!-- Setup Form Card -->
+        <form id="quizSetupForm" class="setup-box" onsubmit="return false;">
+          
+          <!-- Step 1: Age Group -->
+          <div class="setup-step">
+            <div class="step-label">
+              <span class="step-number">1</span>
+              <span>Select Age Group</span>
+            </div>
+            <div class="selection-grid grid-cols-4" role="radiogroup" aria-label="Age Group">
+              
+              <label class="choice-card">
+                <input type="radio" name="ageGroup" value="kids" checked>
+                <div class="choice-card-content">
+                  <span class="choice-icon">🦚</span>
+                  <div class="choice-title">Kids</div>
+                  <div class="choice-desc">Ages 6–10<br>Iconic heroes & fun tales</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="ageGroup" value="young_learners">
+                <div class="choice-card-content">
+                  <span class="choice-icon">🏹</span>
+                  <div class="choice-title">Young Learners</div>
+                  <div class="choice-desc">Ages 11–15<br>Epic battles & astras</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="ageGroup" value="students">
+                <div class="choice-card-content">
+                  <span class="choice-icon">📜</span>
+                  <div class="choice-title">Students</div>
+                  <div class="choice-desc">Ages 16–20<br>Strategy & Gita philosophy</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="ageGroup" value="adults">
+                <div class="choice-card-content">
+                  <span class="choice-icon">🏛️</span>
+                  <div class="choice-title">Adults</div>
+                  <div class="choice-desc">Ages 21+<br>Nuances of Dharma & Parvas</div>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Step 2: Quiz Category -->
+          <div class="setup-step">
+            <div class="step-label">
+              <span class="step-number">2</span>
+              <span>Select Quiz Category</span>
+            </div>
+            <div class="selection-grid grid-cols-mixed" role="radiogroup" aria-label="Quiz Category">
+              
+              <label class="choice-card">
+                <input type="radio" name="category" value="characters" checked>
+                <div class="choice-card-content category-pill-content">
+                  <span class="choice-icon">👑</span>
+                  <div class="choice-title">Characters</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="category" value="stories">
+                <div class="choice-card-content category-pill-content">
+                  <span class="choice-icon">📖</span>
+                  <div class="choice-title">Stories & Events</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="category" value="weapons">
+                <div class="choice-card-content category-pill-content">
+                  <span class="choice-icon">⚔️</span>
+                  <div class="choice-title">Weapons & Astras</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="category" value="places">
+                <div class="choice-card-content category-pill-content">
+                  <span class="choice-icon">🏰</span>
+                  <div class="choice-title">Places</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="category" value="relationships">
+                <div class="choice-card-content category-pill-content">
+                  <span class="choice-icon">🤝</span>
+                  <div class="choice-title">Relationships</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="category" value="values">
+                <div class="choice-card-content category-pill-content">
+                  <span class="choice-icon">⚖️</span>
+                  <div class="choice-title">Values & Lessons</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="category" value="mixed">
+                <div class="choice-card-content category-pill-content">
+                  <span class="choice-icon">✨</span>
+                  <div class="choice-title">Mixed</div>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Step 3: Difficulty -->
+          <div class="setup-step">
+            <div class="step-label">
+              <span class="step-number">3</span>
+              <span>Select Difficulty</span>
+            </div>
+            <div class="selection-grid grid-cols-3" role="radiogroup" aria-label="Difficulty">
+              
+              <label class="choice-card">
+                <input type="radio" name="difficulty" value="easy" checked>
+                <div class="choice-card-content">
+                  <span class="choice-icon">🌱</span>
+                  <div class="choice-title">Easy</div>
+                  <div class="choice-desc">Foundational knowledge</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="difficulty" value="medium">
+                <div class="choice-card-content">
+                  <span class="choice-icon">⚡</span>
+                  <div class="choice-title">Medium</div>
+                  <div class="choice-desc">Detailed lore & stories</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="difficulty" value="hard">
+                <div class="choice-card-content">
+                  <span class="choice-icon">🔥</span>
+                  <div class="choice-title">Hard</div>
+                  <div class="choice-desc">Deep scholarly trivia</div>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Step 4: Number of Questions -->
+          <div class="setup-step">
+            <div class="step-label">
+              <span class="step-number">4</span>
+              <span>Select Number of Questions</span>
+            </div>
+            <div class="selection-grid grid-cols-3" role="radiogroup" aria-label="Number of Questions">
+              
+              <label class="choice-card">
+                <input type="radio" name="questionCount" value="5">
+                <div class="choice-card-content">
+                  <span class="choice-icon">⚡</span>
+                  <div class="choice-title">5 Questions</div>
+                  <div class="choice-desc">Quick Quiz (~3 min)</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="questionCount" value="10" checked>
+                <div class="choice-card-content">
+                  <span class="choice-icon">🎯</span>
+                  <div class="choice-title">10 Questions</div>
+                  <div class="choice-desc">Standard Quest (~7 min)</div>
+                </div>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="questionCount" value="20">
+                <div class="choice-card-content">
+                  <span class="choice-icon">🏆</span>
+                  <div class="choice-title">20 Questions</div>
+                  <div class="choice-desc">Grand Pilgrimage (~15 min)</div>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Generation Action -->
+          <div class="btn-generate-wrapper" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <button id="generateQuizBtn" type="button" class="btn-primary" title="Generate standard quiz from verified question bank">
+              <img class="btn-icon" src="assets/bow-arrow.svg" alt="Gandiva Arrow">
+              <span>Generate Quiz</span>
+            </button>
+            <button id="aiGenerateBtn" type="button" class="btn-primary btn-ai-mode" title="Generate questions specifically tailored to your selections using Gemini AI">
+              <span>✨</span>
+              <span>AI Mode</span>
+            </button>
+          </div>
+
+        </form>
+
+      </section>
+
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 2: ACTIVE QUIZ (ONE QUESTION AT A TIME)                     -->
+      <!-- ================================================================== -->
+      <section id="quizScreen" class="screen" aria-label="Quiz In Progress">
+        <div class="quiz-container">
+          
+          <!-- Quiz Top Metadata Bar -->
+          <div class="quiz-header-bar">
+            <div class="quiz-badges">
+              <span id="badgeAge" class="badge badge-age">Age</span>
+              <span id="badgeCategory" class="badge badge-category">Category</span>
+              <span id="badgeDifficulty" class="badge badge-difficulty">Difficulty</span>
+              <span id="badgeAiMode" class="badge badge-ai" style="display: none;">✨ AI Generated</span>
+            </div>
+            <div class="quiz-meta-right">
+              <div class="quiz-timer" title="Elapsed Time">
+                <span>⏱️</span>
+                <span id="timerDisplay">00:00</span>
+              </div>
+              <button id="quitQuizBtn" type="button" class="btn-quit" title="Exit to Home">Quit Quiz</button>
+            </div>
+          </div>
+
+          <!-- Progress Indicator -->
+          <div class="progress-card">
+            <div class="progress-info">
+              <span>Question <span id="currentQNum" class="current-step">1</span> of <span id="totalQNum">10</span></span>
+              <span id="progressPercent">10%</span>
+            </div>
+            <div class="progress-bar-bg" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+              <div id="progressBarFill" class="progress-bar-fill"></div>
+            </div>
+          </div>
+
+          <!-- Active Question Card -->
+          <div class="question-card">
+            <div class="question-header">
+              <span id="questionCategoryTag" class="question-count-label">Question 1</span>
+              <span id="questionAgeTag" class="badge badge-age">Kids</span>
+            </div>
+            
+            <h2 id="activeQuestionText" class="question-text">
+              Loading question...
+            </h2>
+
+            <!-- Four Options (A, B, C, D) -->
+            <div id="optionsContainer" class="options-list" role="radiogroup" aria-label="Question Options">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Navigation Controls -->
+          <div class="quiz-actions">
+            <button id="prevQuestionBtn" type="button" class="btn-secondary" disabled>
+              ← Previous
+            </button>
+            <button id="nextQuestionBtn" type="button" class="btn-next" disabled>
+              <span id="nextBtnLabel">Next Question</span> →
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 3: RESULTS & QUESTION-BY-QUESTION REVIEW                    -->
+      <!-- ================================================================== -->
+      <section id="resultsScreen" class="screen" aria-label="Quiz Results">
+        
+        <!-- Results Summary Card -->
+        <div class="results-card">
+          <div id="resultBadgeIcon" class="result-badge-icon">👑</div>
+          <h2 id="resultTitle" class="result-title">Supreme Maharatha</h2>
+          <p id="resultSubtitle" class="result-subtitle">
+            Outstanding performance! Your knowledge of the Mahabharata is profound.
+          </p>
+
+          <!-- 4 Stats Cards -->
+          <div class="score-summary-grid">
+            <div class="stat-box stat-score">
+              <div id="statTotalScore" class="stat-value">9 / 10</div>
+              <div class="stat-label">Total Score</div>
+            </div>
+            <div class="stat-box">
+              <div id="statPercentage" class="stat-value">90%</div>
+              <div class="stat-label">Percentage</div>
+            </div>
+            <div class="stat-box stat-correct">
+              <div id="statCorrectCount" class="stat-value">9</div>
+              <div class="stat-label">Correct</div>
+            </div>
+            <div class="stat-box stat-incorrect">
+              <div id="statIncorrectCount" class="stat-value">1</div>
+              <div class="stat-label">Incorrect</div>
+            </div>
+          </div>
+
+          <!-- Result Action Buttons -->
+          <div class="results-actions">
+            <button id="tryAgainBtn" type="button" class="btn-primary">
+              <span>Try Again</span>
+              <span>🔄</span>
+            </button>
+            <button id="newQuizBtn" type="button" class="btn-secondary">
+              <span>Change Settings</span>
+              <span>⚙️</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Comprehensive Review Section -->
+        <div class="review-section">
+          <div class="review-header">
+            <h3 class="review-title">Detailed Question Review</h3>
+            <div class="review-filter-tabs">
+              <button type="button" class="filter-tab active" data-filter="all">All (<span id="countAll">10</span>)</button>
+              <button type="button" class="filter-tab" data-filter="correct">Correct (<span id="countCorrect">9</span>)</button>
+              <button type="button" class="filter-tab" data-filter="incorrect">Incorrect (<span id="countIncorrect">1</span>)</button>
+            </div>
+          </div>
+
+          <!-- Review Question Items Container -->
+          <div id="reviewItemsContainer" class="review-list">
+            <!-- Dynamically populated with question, user choice, correct answer, and explanation -->
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- App Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <p class="footer-quote">
+        “यतो धर्मस्ततो जयः” <span>(Yato Dharmastato Jayah — Where there is Dharma, there is Victory)</span>
+      </p>
+      <p>Mahabharata Educational Quiz • Curated for timeless learning and self-discovery.</p>
+    </div>
+  </footer>
+
+  <!-- Optional Gemini AI Settings Modal -->
+  <div id="aiModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modalTitle" class="modal-title">✨ Gemini AI Mode Configuration</h3>
+        <button id="closeAiModalBtn" class="btn-close-modal" type="button" aria-label="Close Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          AI Mode generates unique, on-demand questions using <strong>Google Gemini</strong> specifically customized to your chosen Age Group, Category, and Difficulty.
+        </p>
+        <p id="aiServerStatusText" style="color: var(--gold-300); font-size: 0.88rem; margin-bottom: 0.75rem;">
+          Checking server status...
+        </p>
+
+        <div class="form-group">
+          <label for="geminiApiKeyInput" class="form-label">Gemini API Key</label>
+          <input type="password" id="geminiApiKeyInput" class="form-input" placeholder="AIzaSy...">
+          <div class="api-note">
+            The key is kept securely on the local backend server (or .env file) and is <strong>never exposed in frontend JavaScript</strong>. If no key is set, the website automatically falls back to the verified local question bank.
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="clearKeyBtn" type="button" class="btn-secondary">Clear Key</button>
+        <button id="saveKeyBtn" type="button" class="btn-next">Save & Use AI Mode</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quit Confirmation Modal -->
+  <div id="quitModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-dialog" style="max-width: 440px; text-align: center;">
+      <h3 class="modal-title" style="margin-bottom: 0.75rem;">Leave Current Quiz?</h3>
+      <p class="modal-body" style="margin-bottom: 1.5rem;">
+        Your progress in this quiz session will be lost. Are you sure you wish to return to the home screen?
+      </p>
+      <div class="modal-actions" style="justify-content: center;">
+        <button id="cancelQuitBtn" type="button" class="btn-secondary">Stay in Quiz</button>
+        <button id="confirmQuitBtn" type="button" class="btn-quit" style="padding: 0.85rem 1.5rem;">Yes, Quit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotice" class="toast-notice" role="alert">Notification</div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999;"></canvas>
+
+  <!-- Scripts -->
+  <script src="js/data/questions.js"></script>
+  <script src="js/audioService.js"></script>
+  <script src="js/geminiService.js"></script>
+  <script src="js/quizEngine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
